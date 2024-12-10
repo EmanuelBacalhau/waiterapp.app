@@ -7,7 +7,7 @@ module.exports = {
       fontFamily: {
         'general-bold': ['GeneralSans700'],
         'general-regular': ['GeneralSans400'],
-        'general-semibold': ['GeneralSans500'],
+        'general-semibold': ['GeneralSans600'],
       },
     },
   },
