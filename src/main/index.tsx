@@ -3,6 +3,7 @@ import { Platform } from 'react-native';
 import { Button } from '../components/button';
 import { Categories } from '../components/categories';
 import { Header } from '../components/header';
+import { Menu } from '../components/menu';
 
 export const Main = () => {
   const isAndroid = Platform.OS === 'android';
@@ -21,8 +22,8 @@ export const Main = () => {
             <Categories />
           </View>
 
-          <View className="flex-1">
-            <Text>itens</Text>
+          <View className="flex-1 mt-6">
+            <Menu />
           </View>
         </View>
 

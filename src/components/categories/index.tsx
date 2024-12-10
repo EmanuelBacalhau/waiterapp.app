@@ -22,7 +22,7 @@ export const Categories = () => {
         return (
           <TouchableOpacity
             activeOpacity={0.7}
-            className={`items-center gap-1 mr-4 ${isSelected ? 'opacity-100' : 'opacity-80'}`}
+            className={`items-center gap-1 mr-4 ${isSelected ? 'opacity-100' : 'opacity-50'}`}
             onPress={() => {
               handleSelectCategory(category._id);
             }}

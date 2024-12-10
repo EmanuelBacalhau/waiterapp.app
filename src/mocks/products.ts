@@ -1,39 +1,266 @@
-const products = [
+export const products = [
   {
-    _id: '6372e040f52e37ef85fe2c5e',
-    name: 'Pizza quatro queijos',
+    _id: '675614595dfef74f7c4e3393',
+    name: 'Pizza quatro queijo',
     description: 'Deliciosa pizza quatro queijos com borda simples',
-    imagePath: '1668472896991-quatro-queijos.png',
+    imagePath: '1733694553332-quatro-queijos.png',
     price: 40,
     ingredients: [
       {
         name: 'Mussarela',
         icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c5f'
+        _id: '675614595dfef74f7c4e3394',
       },
       {
         name: 'Parmesão',
         icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c60'
+        _id: '675614595dfef74f7c4e3395',
       },
       {
         name: 'Gouda',
         icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c61'
+        _id: '675614595dfef74f7c4e3396',
       },
       {
         name: 'Brie',
         icon: '🧀',
-        _id: '6372e040f52e37ef85fe2c62'
-      }
+        _id: '675614595dfef74f7c4e3397',
+      },
     ],
+    category: '675604e783bfdfff4bfa230c',
+    __v: 0,
   },
   {
-    _id: '6372e276a381106c0f854cb3',
-    name: 'Coca cola',
-    description: 'Coca cola lata geladinha topzera',
-    imagePath: '1668473462705-coca-cola.png',
-    price: 7,
+    _id: '6756156b7ec1985066fd5c5b',
+    name: 'Humbuguer',
+    description: 'Delicioso humburguer',
+    imagePath: '1733694827634-burger-molho-especial.png',
+    price: 20,
+    ingredients: [
+      {
+        name: 'Pão de Hambúrguer',
+        icon: '🍞',
+        _id: '6756156b7ec1985066fd5c5c',
+      },
+      {
+        name: 'Carne Bovina Moída',
+        icon: '🥩',
+        _id: '6756156b7ec1985066fd5c5d',
+      },
+      {
+        name: 'Queijo Cheddar',
+        icon: '🧀',
+        _id: '6756156b7ec1985066fd5c5e',
+      },
+      {
+        name: 'Tomate Fatiado',
+        icon: '🍅',
+        _id: '6756156b7ec1985066fd5c5f',
+      },
+      {
+        name: 'Alface',
+        icon: '🥗',
+        _id: '6756156b7ec1985066fd5c60',
+      },
+      {
+        name: 'Cebola Roxa',
+        icon: '🧅',
+        _id: '6756156b7ec1985066fd5c61',
+      },
+      {
+        name: 'Molho Especial',
+        icon: '🥄',
+        _id: '6756156b7ec1985066fd5c62',
+      },
+      {
+        name: 'Picles',
+        icon: '🥒',
+        _id: '6756156b7ec1985066fd5c63',
+      },
+    ],
+    category: '6756059034ff959c2e673ed5',
+    __v: 0,
+  },
+  {
+    _id: '675615a67ec1985066fd5c65',
+    name: 'Cerveja',
+    description: 'Bem geladinha',
+    imagePath: '1733694886852-cerveja.png',
+    price: 14,
     ingredients: [],
+    category: '6756056634ff959c2e673ed3',
+    __v: 0,
+  },
+  {
+    _id: '675615ef7ec1985066fd5c67',
+    name: 'Chicken',
+    description: 'Delicioso hambuguer',
+    imagePath: '1733694959245-chicken.png',
+    price: 26,
+    ingredients: [
+      {
+        name: 'Pão de Hambúrguer',
+        icon: '🍞',
+        _id: '675615ef7ec1985066fd5c68',
+      },
+      {
+        name: 'Filé de Frango Grelhado',
+        icon: '🍗',
+        _id: '675615ef7ec1985066fd5c69',
+      },
+      {
+        name: 'Queijo Suave',
+        icon: '🧀',
+        _id: '675615ef7ec1985066fd5c6a',
+      },
+      {
+        name: 'Tomate Fatiado',
+        icon: '🍅',
+        _id: '675615ef7ec1985066fd5c6b',
+      },
+      {
+        name: 'Alface',
+        icon: '🥗',
+        _id: '675615ef7ec1985066fd5c6c',
+      },
+      {
+        name: 'Maionese',
+        icon: '🥄',
+        _id: '675615ef7ec1985066fd5c6d',
+      },
+      {
+        name: 'Molho Barbecue',
+        icon: '🔥',
+        _id: '675615ef7ec1985066fd5c6e',
+      },
+      {
+        name: 'Picles',
+        icon: '🥒',
+        _id: '675615ef7ec1985066fd5c6f',
+      },
+    ],
+    category: '6756059034ff959c2e673ed5',
+    __v: 0,
+  },
+  {
+    _id: '675616117ec1985066fd5c71',
+    name: 'Coca Cola',
+    description: 'Bem geladinha',
+    imagePath: '1733694993411-coca-cola.png',
+    price: 26,
+    ingredients: [],
+    category: '6756056634ff959c2e673ed3',
+    __v: 0,
+  },
+  {
+    _id: '6756165f7ec1985066fd5c73',
+    name: 'Egg Burger',
+    description: 'Delicioso hamburguer',
+    imagePath: '1733695071779-egg.png',
+    price: 18,
+    ingredients: [
+      {
+        name: 'Pão de Hambúrguer',
+        icon: '🍞',
+        _id: '6756165f7ec1985066fd5c74',
+      },
+      {
+        name: 'Hambúrguer de Carne',
+        icon: '🥩',
+        _id: '6756165f7ec1985066fd5c75',
+      },
+      {
+        name: 'Ovo Frito',
+        icon: '🍳',
+        _id: '6756165f7ec1985066fd5c76',
+      },
+      {
+        name: 'Queijo Cheddar',
+        icon: '🧀',
+        _id: '6756165f7ec1985066fd5c77',
+      },
+      {
+        name: 'Tomate Fatiado',
+        icon: '🍅',
+        _id: '6756165f7ec1985066fd5c78',
+      },
+      {
+        name: 'Alface',
+        icon: '🥗',
+        _id: '6756165f7ec1985066fd5c79',
+      },
+      {
+        name: 'Cebola Roxa',
+        icon: '🧅',
+        _id: '6756165f7ec1985066fd5c7a',
+      },
+      {
+        name: 'Maionese',
+        icon: '🥄',
+        _id: '6756165f7ec1985066fd5c7b',
+      },
+      {
+        name: 'Molho Barbecue',
+        icon: '🔥',
+        _id: '6756165f7ec1985066fd5c7c',
+      },
+    ],
+    category: '6756059034ff959c2e673ed5',
+    __v: 0,
+  },
+  {
+    _id: '675616da3c119e82582ac876',
+    name: 'Pizza frangro com catupiry',
+    description: 'Deliciosa pizza de frango e catupiry',
+    imagePath: '1733695194904-frango-catupiry.png',
+    price: 45,
+    ingredients: [
+      {
+        name: 'Pão de Hambúrguer',
+        icon: '🍞',
+        _id: '675616da3c119e82582ac877',
+      },
+      {
+        name: 'Hambúrguer de Carne',
+        icon: '🥩',
+        _id: '675616da3c119e82582ac878',
+      },
+      {
+        name: 'Ovo Frito',
+        icon: '🍳',
+        _id: '675616da3c119e82582ac879',
+      },
+      {
+        name: 'Queijo Cheddar',
+        icon: '🧀',
+        _id: '675616da3c119e82582ac87a',
+      },
+      {
+        name: 'Tomate Fatiado',
+        icon: '🍅',
+        _id: '675616da3c119e82582ac87b',
+      },
+      {
+        name: 'Alface',
+        icon: '🥗',
+        _id: '675616da3c119e82582ac87c',
+      },
+      {
+        name: 'Cebola Roxa',
+        icon: '🧅',
+        _id: '675616da3c119e82582ac87d',
+      },
+      {
+        name: 'Maionese',
+        icon: '🥄',
+        _id: '675616da3c119e82582ac87e',
+      },
+      {
+        name: 'Molho Barbecue',
+        icon: '🔥',
+        _id: '675616da3c119e82582ac87f',
+      },
+    ],
+    category: '6756059034ff959c2e673ed5',
   },
 ];
