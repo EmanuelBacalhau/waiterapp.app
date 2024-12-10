@@ -1,5 +1,6 @@
 import { FlatList, SafeAreaView, StatusBar, Text, View } from 'react-native';
 import { Platform } from 'react-native';
+import { Button } from '../components/button';
 import { Categories } from '../components/categories';
 import { Header } from '../components/header';
 
@@ -25,8 +26,10 @@ export const Main = () => {
           </View>
         </View>
 
-        <View className="min-h-28 bg-white">
-          <Text>fotter</Text>
+        <View className="min-h-28 bg-white py-4 px-6">
+          <SafeAreaView>
+            <Button onPress={() => {}}>Novo pedido</Button>
+          </SafeAreaView>
         </View>
       </SafeAreaView>
     </>
