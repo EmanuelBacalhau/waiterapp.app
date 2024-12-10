@@ -21,7 +21,8 @@ export const TableModal = ({ visible, onClose, onSave }: Props) => {
   const isAndroid = Platform.OS === 'android';
   const [table, setTable] = useState<string>('');
 
-  const handleSaveTable = (table: string) => {
+  const handleSave = (table: string) => {
+    setTable('');
     onSave(table);
     onClose();
   };
@@ -48,7 +49,7 @@ export const TableModal = ({ visible, onClose, onSave }: Props) => {
               onChangeText={setTable}
             />
 
-            <Button disabled={!table} onPress={() => handleSaveTable(table)}>
+            <Button disabled={!table} onPress={() => handleSave(table)}>
               Salvar
             </Button>
           </View>

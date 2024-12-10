@@ -28,13 +28,20 @@ export const Main = () => {
     setIsTableModalVisible(false);
   };
 
+  const handleCancelOrder = () => {
+    setSelectedTable('');
+  };
+
   return (
     <>
       <SafeAreaView
         className="flex-1 bg-gray-50"
         style={{ marginTop: statusbarHeight }}
       >
-        <Header />
+        <Header
+          selectedTable={selectedTable}
+          onCancelOrder={handleCancelOrder}
+        />
 
         <View className="px-6 flex-1">
           <View className="h-20 mt-9">
