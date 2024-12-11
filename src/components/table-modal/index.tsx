@@ -28,7 +28,12 @@ export const TableModal = ({ visible, onClose, onSave }: Props) => {
   };
 
   return (
-    <Modal transparent visible={visible} animationType="fade">
+    <Modal
+      transparent
+      visible={visible}
+      animationType="fade"
+      onRequestClose={onClose}
+    >
       <KeyboardAvoidingView
         behavior={isAndroid ? 'height' : 'padding'}
         className="bg-black/60 flex-1 items-stretch justify-center p-6"
