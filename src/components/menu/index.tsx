@@ -1,14 +1,20 @@
 import { useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
+import { useOrder } from '../../context/order-context';
 import { products } from '../../mocks/products';
 import type { Product } from '../../types/product';
 import { formatCurrency } from '../../utils/format-currency';
 import { PlusCircle } from '../icons/plus-circle';
 import { ProductModal } from '../product-modal';
 
-export const Menu = () => {
+type Props = {
+  isSelectedTable: boolean;
+};
+
+export const Menu = ({ isSelectedTable }: Props) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+  const { handleIncrementItem: addItem } = useOrder();
 
   const handleOpenModal = (product: Product) => {
     setIsModalVisible(true);
@@ -57,17 +63,28 @@ export const Menu = () => {
                 </Text>
               </View>
 
-              <TouchableOpacity className="absolute bottom-1 right-1">
+              <TouchableOpacity
+                className="absolute bottom-1 right-1"
+                disabled={!isSelectedTable}
+                onPress={() =>
+                  addItem({
+                    product,
+                    quantity: 1,
+                  })
+                }
+              >
                 <PlusCircle />
               </TouchableOpacity>
             </TouchableOpacity>
           );
         }}
       />
+
       <ProductModal
         visible={isModalVisible}
         onClose={handleCloseModal}
         product={selectedProduct}
+        isSelectedTable={isSelectedTable}
       />
     </>
   );

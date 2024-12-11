@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { useOrder } from '../../context/order-context';
 import type { Product } from '../../types/product';
 import { formatCurrency } from '../../utils/format-currency';
 import { Button } from '../button';
@@ -17,12 +18,28 @@ type Props = {
   visible: boolean;
   onClose: () => void;
   product: Product | null;
+  isSelectedTable: boolean;
 };
 
-export const ProductModal = ({ visible, onClose, product }: Props) => {
+export const ProductModal = ({
+  visible,
+  onClose,
+  product,
+  isSelectedTable,
+}: Props) => {
+  const { handleIncrementItem } = useOrder();
+
   if (!product) {
     return null;
   }
+
+  const onIncrementItem = (product: Product) => {
+    handleIncrementItem({
+      product,
+      quantity: 1,
+    });
+    onClose();
+  };
 
   return (
     <Modal
@@ -87,7 +104,12 @@ export const ProductModal = ({ visible, onClose, product }: Props) => {
             </Text>
           </View>
 
-          <Button onPress={() => {}}>Adicionar ao carrinho</Button>
+          <Button
+            disabled={!isSelectedTable}
+            onPress={() => onIncrementItem(product)}
+          >
+            Adicionar ao carrinho
+          </Button>
         </SafeAreaView>
       </View>
     </Modal>

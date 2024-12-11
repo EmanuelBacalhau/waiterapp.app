@@ -2,6 +2,7 @@ import './global.css';
 
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
+import { OrderProvider } from './src/context/order-context';
 import { Main } from './src/main';
 
 export default function App() {
@@ -16,9 +17,9 @@ export default function App() {
   }
 
   return (
-    <>
+    <OrderProvider>
       <Main />
       <StatusBar style="dark" translucent backgroundColor="#fff" />
-    </>
+    </OrderProvider>
   );
 }

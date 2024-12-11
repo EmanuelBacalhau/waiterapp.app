@@ -2,23 +2,19 @@ import { useState } from 'react';
 import { FlatList, SafeAreaView, StatusBar, Text, View } from 'react-native';
 import { Platform } from 'react-native';
 import { Button } from '../components/button';
+import { Cart } from '../components/cart';
 import { Categories } from '../components/categories';
 import { Header } from '../components/header';
 import { Menu } from '../components/menu';
 import { TableModal } from '../components/table-modal';
+import { useOrder } from '../context/order-context';
 
 export const Main = () => {
   const isAndroid = Platform.OS === 'android';
   const statusbarHeight = isAndroid ? StatusBar.currentHeight : 0;
-
+  const { table, addTable, clearTable } = useOrder();
   const [isTableModalVisible, setIsTableModalVisible] =
     useState<boolean>(false);
-
-  const [selectedTable, setSelectedTable] = useState<string>('');
-
-  const handleSaveTable = (table: string) => {
-    setSelectedTable(table);
-  };
 
   const handleOpenTableModal = () => {
     setIsTableModalVisible(true);
@@ -28,20 +24,13 @@ export const Main = () => {
     setIsTableModalVisible(false);
   };
 
-  const handleCancelOrder = () => {
-    setSelectedTable('');
-  };
-
   return (
     <>
       <SafeAreaView
         className="flex-1 bg-gray-50"
         style={{ marginTop: statusbarHeight }}
       >
-        <Header
-          selectedTable={selectedTable}
-          onCancelOrder={handleCancelOrder}
-        />
+        <Header selectedTable={table} onCancelOrder={clearTable} />
 
         <View className="px-6 flex-1">
           <View className="h-20 mt-9">
@@ -49,23 +38,25 @@ export const Main = () => {
           </View>
 
           <View className="flex-1 mt-6">
-            <Menu />
+            <Menu isSelectedTable={!!table} />
           </View>
         </View>
 
         <View className="min-h-28 bg-white py-4 px-6">
-          {!selectedTable && (
+          {!table && (
             <SafeAreaView>
               <Button onPress={handleOpenTableModal}>Novo pedido</Button>
             </SafeAreaView>
           )}
+
+          {table && <Cart />}
         </View>
       </SafeAreaView>
 
       <TableModal
         onClose={handleCloseTableModal}
         visible={isTableModalVisible}
-        onSave={handleSaveTable}
+        onSave={addTable}
       />
     </>
   );

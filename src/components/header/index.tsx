@@ -1,4 +1,5 @@
 import { Text, TouchableOpacity, View } from 'react-native';
+import { useOrder } from '../../context/order-context';
 
 type Props = {
   selectedTable: string;
@@ -6,6 +7,13 @@ type Props = {
 };
 
 export const Header = ({ selectedTable, onCancelOrder }: Props) => {
+  const { clearItens } = useOrder();
+
+  const handleCancelOrder = () => {
+    clearItens();
+    onCancelOrder();
+  };
+
   return (
     <View className="mt-6 mx-6">
       {!selectedTable && (
@@ -25,7 +33,7 @@ export const Header = ({ selectedTable, onCancelOrder }: Props) => {
           <View className="flex-row justify-between items-center">
             <Text className="font-general-bold text-3xl">Pedido</Text>
 
-            <TouchableOpacity activeOpacity={0.5} onPress={onCancelOrder}>
+            <TouchableOpacity activeOpacity={0.5} onPress={handleCancelOrder}>
               <Text className="text-red-600 text-lg font-general-semibold">
                 cancelar pedido
               </Text>
