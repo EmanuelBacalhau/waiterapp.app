@@ -14,7 +14,7 @@ type Props = {
 export const Menu = ({ isSelectedTable }: Props) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const { handleIncrementItem: addItem } = useOrder();
+  const { handleIncrementItem } = useOrder();
 
   const handleOpenModal = (product: Product) => {
     setIsModalVisible(true);
@@ -67,7 +67,7 @@ export const Menu = ({ isSelectedTable }: Props) => {
                 className="absolute bottom-1 right-1"
                 disabled={!isSelectedTable}
                 onPress={() =>
-                  addItem({
+                  handleIncrementItem({
                     product,
                     quantity: 1,
                   })
