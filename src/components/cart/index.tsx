@@ -17,6 +17,7 @@ export const Cart = () => {
   } = useOrder();
   const [isOrderModalVisible, setIsOrderModalVisible] =
     useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const total = itens.reduce(
     (acc, item) => acc + item.product.price * item.quantity,
@@ -25,6 +26,7 @@ export const Cart = () => {
 
   const handleConfirmOrder = () => {
     setIsOrderModalVisible(true);
+    setIsLoading(true);
   };
 
   const handleOk = () => {
@@ -105,7 +107,11 @@ export const Cart = () => {
             )}
           </View>
 
-          <Button onPress={handleConfirmOrder} disabled={itens.length === 0}>
+          <Button
+            onPress={handleConfirmOrder}
+            disabled={itens.length === 0}
+            loading={isLoading}
+          >
             Confirmar pedido
           </Button>
         </View>

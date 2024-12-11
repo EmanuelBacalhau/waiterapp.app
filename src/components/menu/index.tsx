@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { useOrder } from '../../context/order-context';
-import { products } from '../../mocks/products';
 import type { Product } from '../../types/product';
 import { formatCurrency } from '../../utils/format-currency';
 import { PlusCircle } from '../icons/plus-circle';
@@ -9,9 +8,10 @@ import { ProductModal } from '../product-modal';
 
 type Props = {
   isSelectedTable: boolean;
+  products: Product[];
 };
 
-export const Menu = ({ isSelectedTable }: Props) => {
+export const Menu = ({ isSelectedTable, products }: Props) => {
   const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const { handleIncrementItem } = useOrder();
