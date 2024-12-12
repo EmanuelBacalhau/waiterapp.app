@@ -1,6 +1,5 @@
 import {
   FlatList,
-  Image,
   ImageBackground,
   Modal,
   SafeAreaView,
@@ -10,6 +9,7 @@ import {
 } from 'react-native';
 import { useOrder } from '../../context/order-context';
 import type { Product } from '../../types/product';
+import { baseURL } from '../../utils/api';
 import { formatCurrency } from '../../utils/format-currency';
 import { Button } from '../button';
 import { Close } from '../icons/close';
@@ -51,7 +51,7 @@ export const ProductModal = ({
       <ImageBackground
         className="h-56 items-end p-2"
         source={{
-          uri: `http://192.168.3.20:3001/uploads/${product.imagePath}`,
+          uri: `${baseURL}/uploads/${product.imagePath}`,
         }}
       >
         <TouchableOpacity

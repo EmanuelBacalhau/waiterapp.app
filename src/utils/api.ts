@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+export const baseURL = process.env.EXPO_PUBLIC_BASE_URL;
+
 export const api = axios.create({
-  baseURL: 'http://192.168.3.20:3001',
+  baseURL,
 });
