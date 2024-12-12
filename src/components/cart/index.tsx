@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { useOrder } from '../../context/order-context';
-import { products } from '../../mocks/products';
 import { api } from '../../utils/api';
 import { formatCurrency } from '../../utils/format-currency';
 import { Button } from '../button';
@@ -67,7 +66,7 @@ export const Cart = () => {
                   width={50}
                   height={40}
                   source={{
-                    uri: `http://192.168.3.20:3001/uploads/${cartItem.product.imagePath}`,
+                    uri: `/uploads/${cartItem.product.imagePath}`,
                   }}
                 />
 

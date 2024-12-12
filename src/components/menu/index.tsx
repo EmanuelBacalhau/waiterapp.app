@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { useOrder } from '../../context/order-context';
 import type { Product } from '../../types/product';
+import { baseURL } from '../../utils/api';
 import { formatCurrency } from '../../utils/format-currency';
 import { PlusCircle } from '../icons/plus-circle';
 import { ProductModal } from '../product-modal';
@@ -46,7 +47,7 @@ export const Menu = ({ isSelectedTable, products }: Props) => {
                 width={120}
                 height={96}
                 source={{
-                  uri: `http://192.168.3.20:3001/uploads/${product.imagePath}`,
+                  uri: `${baseURL}/uploads/${product.imagePath}`,
                 }}
               />
 
