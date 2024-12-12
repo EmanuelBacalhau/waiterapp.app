@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
 import { useOrder } from '../../context/order-context';
+import { products } from '../../mocks/products';
+import { api } from '../../utils/api';
 import { formatCurrency } from '../../utils/format-currency';
 import { Button } from '../button';
 import { MinusCircle } from '../icons/minus-circle';
@@ -14,6 +16,7 @@ export const Cart = () => {
     handleDecrementItem,
     clearItens,
     clearTable,
+    table,
   } = useOrder();
   const [isOrderModalVisible, setIsOrderModalVisible] =
     useState<boolean>(false);
@@ -24,9 +27,21 @@ export const Cart = () => {
     0
   );
 
-  const handleConfirmOrder = () => {
-    setIsOrderModalVisible(true);
+  const handleConfirmOrder = async () => {
     setIsLoading(true);
+
+    const payload = {
+      table,
+      products: itens.map(item => ({
+        product: item.product._id,
+        quantity: item.quantity,
+      })),
+    };
+
+    await api.post('/orders', payload);
+
+    setIsLoading(false);
+    setIsOrderModalVisible(true);
   };
 
   const handleOk = () => {

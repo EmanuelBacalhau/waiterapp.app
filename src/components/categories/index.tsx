@@ -1,13 +1,22 @@
 import { useState } from 'react';
 import { FlatList, Platform, Text, TouchableOpacity, View } from 'react-native';
-import { categories } from '../../mocks/categories';
+import type { Category } from '../../types/category';
 
-export const Categories = () => {
+type Props = {
+  categories: Category[];
+  onSelectCategory: (categoryId: string) => void;
+};
+
+export const Categories = ({ categories, onSelectCategory }: Props) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const isAndroid = Platform.OS === 'android';
 
   const handleSelectCategory = (categoryId: string) => {
-    setSelectedCategory(categoryId === selectedCategory ? '' : categoryId);
+    const selectedCategoryId =
+      categoryId === selectedCategory ? '' : categoryId;
+
+    setSelectedCategory(selectedCategoryId);
+    onSelectCategory(selectedCategoryId);
   };
 
   return (
@@ -28,14 +37,10 @@ export const Categories = () => {
             }}
           >
             <View
-              className={`bg-white rounded-full w-14 h-14 items-center justify-center shadow ${isAndroid ? 'shadow-black/70' : 'shadow-black/10'}`}
+              className={`bg-white rounded-full w-20 h-20 items-center justify-center shadow ${isAndroid ? 'shadow-black/70' : 'shadow-black/10'}`}
             >
               <Text className="text-2xl">{category.icon}</Text>
             </View>
-
-            <Text className="text-base font-general-semibold text-center">
-              {category.name}
-            </Text>
           </TouchableOpacity>
         );
       }}
